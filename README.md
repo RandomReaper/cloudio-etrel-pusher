@@ -9,9 +9,9 @@ Example use of cloudio-endpoint-python
 
 0. Create the directory certs **inside the git repo**, containing:
 
-  * ca-cert.pem
-  * sample-cert.pem
-  * sample-key.pem
+    * ca-cert.pem
+    * sample-cert.pem
+    * sample-key.pem
 
 0. Get the CN from the certificate : `openssl x509 -in certs/sample-cert.pem -text -noout | grep '=client'`
     ```
