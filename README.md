@@ -8,6 +8,7 @@ Example use of cloudio-endpoint-python
     ```
 
 0. Create the directory certs **inside the git repo**, containing:
+
     0. ca-cert.pem
     0. sample-cert.pem
     0. sample-key.pem
