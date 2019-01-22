@@ -2,18 +2,18 @@
 Example use of cloudio-endpoint-python
 
 ## Simple testing
-0. clone the repo and go inside it
+1. clone the repo and go inside it
     ```
     git clone https://github.com/RandomReaper/cloudio-endpoint-python-example.git && cd cloudio-endpoint-python-example
     ```
 
-0. Create the directory certs **inside the git repo**, containing:
+1. Create the directory certs **inside the git repo**, containing:
 
     * ca-cert.pem
     * sample-cert.pem
     * sample-key.pem
 
-0. Get the CN from the certificate : `openssl x509 -in certs/sample-cert.pem -text -noout | grep '=client'`
+1. Get the CN from the certificate : `openssl x509 -in certs/sample-cert.pem -text -noout | grep '=client'`
     ```
     openssl x509 -in certs/sample-cert.pem -text -noout | grep '=client'
             Subject: CN=FEMS1, O=client
@@ -21,16 +21,16 @@ Example use of cloudio-endpoint-python
 
     Here the client name is 'FEMS1'
 
-0. Edit the `sample.cfg` file
-    0. username in [cloudio] MUST match the CN in the certificate
-    0. name in [endpoint] MUST match the CN in the certificate
+1. Edit the `sample.cfg` file
+    1. username in [cloudio] MUST match the CN in the certificate
+    1. name in [endpoint] MUST match the CN in the certificate
 
-0. install the dependencies
+1. Install the dependencies
     ```
     pip install cloudio-endpoint-python
     ```
 
-0. run with sample expected output
+1. Run with sample, expected output:
     ```
     python main.py
     2019-01-22 12:34:32.903 - client - INFO - Starting MQTT client...
@@ -73,8 +73,8 @@ Example use of cloudio-endpoint-python
     ```
 
 ## Running the sample in docker
-0. Follow steps from simple testing, **stop before pip install**
-0. Run the docker in the current directory
+1. Follow steps from simple testing, **stop before pip install**
+1. Run the docker in the current directory
     ```
     docker run --rm -it -v $PWD:/data:ro python:3.7-slim /bin/bash -c "cd /data ; pip install cloudio-endpoint-python ; python main.py"
     ```
