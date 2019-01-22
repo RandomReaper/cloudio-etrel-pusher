@@ -23,7 +23,6 @@ Example use of cloudio-endpoint-python
 0. Edit the `sample.cfg` file
     0. username in [cloudio] MUST match the CN in the certificate
     0. name in [endpoint] MUST match the CN in the certificate
-```
 
 0. install the dependencies
     ```
