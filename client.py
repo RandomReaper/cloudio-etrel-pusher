@@ -146,6 +146,7 @@ class Sample_Client():
         self.log.info('Disconnect from cloud.iO: ' + str(rc))
 
     def onMessage(self, client, userdata, msg):
+        print('debug:Client rxed: ' + msg.topic)
         if not hasattr(self, '_observer'):
             return
 
