@@ -159,13 +159,18 @@ class Sample_Client():
     ################################################################################################################
     ### Send value
     ################################################################################################################
-    def publish(self, node, object, value):
-        topic = '@update/'+config['endpoint']['name']+'/nodes/'+node+'/objects/'+object+'/attributes/datapoint'
+
+    def publish_ts(self, endpoint, node, object, value, timestamp):
+        topic = '@update/'+endpoint+'/nodes/'+node+'/objects/'+object+'/attributes/datapoint'
         payload = {}
-        payload['timestamp'] = datetime_helpers.getCurrentTimestamp()/1000
+        payload['timestamp'] = timestamp
         payload['value'] = float(value)
         payload['type'] = "Number"
         payload['constraint'] = 'Measure'
         self._client.publish(topic, json.dumps(payload), qos=self._qos)
 
-   
+    def publish_ep(self, endpoint, node, object, value):
+        self.publish_ts(endpoint, node, object, value, datetime_helpers.getCurrentTimestamp()/1000)
+
+    def publish(self, node, object, value):
+        self.publish_ts(config['endpoint']['name'], node, object, value)
