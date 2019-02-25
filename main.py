@@ -19,6 +19,8 @@ def getJson( suburl ):
 
     r = requests.get(url_base + suburl, auth=HTTPBasicAuth(username, password))
 
+    #print ("getJson(" + url_base + suburl + ")")
+
     return json.loads(r.text)
 
 def timestamp ( str ):
@@ -37,7 +39,7 @@ while True:
 
     #print(json.dumps(parsed, indent=4, sort_keys=True))
 
-    print (parsed['PagingInfo']['NumOfRows'])
+    print ("parsed['PagingInfo']['NumOfRows']:" + str(parsed['PagingInfo']['NumOfRows']))
 
     for chargingSession in parsed['Content']:
         if "HEVS" not in chargingSession['ChargePoint']['FriendlyCode']:
@@ -96,4 +98,4 @@ while True:
                 timestamp(str(i['LastCommunicationTime']))
                 )
         print ("##############")
-        time.sleep(60)
+    time.sleep(60)
